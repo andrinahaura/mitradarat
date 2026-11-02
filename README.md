@@ -1,56 +1,60 @@
-# Welcome to your Expo app 👋
+# MitraDarat v2
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Prototipe redesign aplikasi MitraDarat (Ditjen Perhubungan Darat) yang dibuat dengan Expo dan React Native. Semua halaman v1 dibangun ulang sebagai layar native: Beranda, Lacak dengan peta interaktif, Layanan (Cek Laik, eTiket Terminal, Peta Prasarana, Peta Tematik, Lalu Lintas, Survei Kepuasan, Pusat Bantuan), Berita, Akun, dan Kotak Masuk.
 
-## Get started
+> Ini prototipe untuk kajian desain, bukan aplikasi resmi. Semua data adalah contoh. Login, kontak resmi, dan pengiriman laporan belum tersambung ke server.
 
-1. Install dependencies
+## Teknologi
 
-   ```bash
-   npm install
-   ```
+- Expo SDK 58, React Native 0.88, React 19, TypeScript
+- Expo Router (navigasi berbasis file di `src/app`)
+- react-native-maps (Apple Maps di iOS), Reanimated 4
 
-2. Start the app
+## Menjalankan di HP (paling mudah)
 
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **src/app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+Yang dibutuhkan: Node.js 22.13 atau lebih baru, dan aplikasi **Expo Go** di HP (App Store atau Play Store) yang mendukung SDK 58.
 
 ```bash
-npm run reset-project
+git clone https://github.com/andrinahaura/mitradarat.git
+cd mitradarat
+npm install
+npx expo start
 ```
 
-This command will move the starter code to the **example** directory and create a blank **src/app** directory where you can start developing.
+Lalu scan QR yang muncul di terminal:
 
-### Other setup steps
+- **iPhone:** pakai aplikasi Kamera, lalu buka di Expo Go.
+- **Android:** pakai tombol "Scan QR code" di Expo Go.
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+HP dan komputer harus di Wi-Fi yang sama. Kalau tidak bisa tersambung, jalankan `npx expo start --tunnel`.
 
-## Learn more
+## Pratinjau di browser
 
-To learn more about developing your project with Expo, look at the following resources:
+```bash
+npx expo start --web
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Peta tidak tampil di browser (hanya di HP), selebihnya bisa dicoba.
 
-## Join the community
+## Data contoh untuk mencoba
 
-Join our community of developers creating universal apps.
+- **Cek Laik:** plat `H 7191 OQ`, `B 7012 TGA`, atau `AB 7123 XY`
+- **eTiket Terminal:** kode `TOS7K2M9` dengan nama `Budi Santoso`
+- **Masuk / Daftar:** isi bebas; prototipe tidak memeriksa atau menyimpan kata sandi
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Struktur
+
+- `src/app/` layar dan navigasi (satu file = satu halaman)
+- `src/components/` komponen UI
+- `src/constants/` token desain (`theme.ts`), header (`navigation.ts`), animasi (`motion.ts`)
+- `src/data/` data contoh
+- `design.md` panduan desain, `docs/analisis-ux.md` analisis UX aplikasi v1
+
+## Pemeriksaan
+
+```bash
+npx tsc --noEmit
+npx expo lint
+```
+
+Jangan jalankan `npm run reset-project`: skrip bawaan template itu memindahkan seluruh isi `src/app` ke folder `example`.
