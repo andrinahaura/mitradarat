@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pratinjau iPhone</title>
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 32px;
+        padding: 16px;
+        background: #e5e7eb;
+        font-family: -apple-system, system-ui, sans-serif;
+      }
+      .phone {
+        width: 393px;
+        height: 852px;
+        border: 10px solid #111;
+        border-radius: 48px;
+        overflow: hidden;
+        background: #fff;
+        flex-shrink: 0;
+      }
+      iframe {
+        width: 393px;
+        height: 852px;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Local dev-only preview frame at iPhone 15 size; not part of the app. -->
+    <div class="phone"><iframe id="app" src="/"></iframe></div>
+    <script>
+      // preview.html?path=/layanan/cek-laik opens that screen inside the frame.
+      const path = new URLSearchParams(location.search).get('path');
+      if (path && path.startsWith('/')) document.getElementById('app').src = path;
+    </script>
+  </body>
+</html>

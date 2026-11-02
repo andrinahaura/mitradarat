@@ -1,12 +1,12 @@
 {
   "expo": {
-    "name": "mitradarat",
+    "name": "MitraDarat",
     "slug": "mitradarat",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "mitradarat",
-    "userInterfaceStyle": "automatic",
+    "userInterfaceStyle": "light",
     "ios": {
       "icon": "./assets/expo.icon"
     },

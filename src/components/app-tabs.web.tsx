@@ -22,10 +22,19 @@ export default function AppTabs() {
       <TabList asChild>
         <CustomTabList>
           <TabTrigger name="home" href="/" asChild>
-            <TabButton>Home</TabButton>
+            <TabButton>Beranda</TabButton>
           </TabTrigger>
-          <TabTrigger name="explore" href="/explore" asChild>
-            <TabButton>Explore</TabButton>
+          <TabTrigger name="lacak" href="/lacak" asChild>
+            <TabButton>Lacak</TabButton>
+          </TabTrigger>
+          <TabTrigger name="layanan" href="/layanan" asChild>
+            <TabButton>Layanan</TabButton>
+          </TabTrigger>
+          <TabTrigger name="berita" href="/berita" asChild>
+            <TabButton>Berita</TabButton>
+          </TabTrigger>
+          <TabTrigger name="akun" href="/akun" asChild>
+            <TabButton>Akun</TabButton>
           </TabTrigger>
         </CustomTabList>
       </TabList>
@@ -55,7 +64,7 @@ export function CustomTabList(props: TabListProps) {
     <View {...props} style={styles.tabListContainer}>
       <ThemedView type="backgroundElement" style={styles.innerContainer}>
         <ThemedText type="smallBold" style={styles.brandText}>
-          Expo Starter
+          MitraDarat
         </ThemedText>
 
         {props.children}
@@ -78,6 +87,7 @@ export function CustomTabList(props: TabListProps) {
 const styles = StyleSheet.create({
   tabListContainer: {
     position: 'absolute',
+    bottom: 0,
     width: '100%',
     padding: Spacing.three,
     justifyContent: 'center',
