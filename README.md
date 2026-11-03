@@ -57,4 +57,6 @@ npx tsc --noEmit
 npx expo lint
 ```
 
+Jalankan `npx expo start` sekali sebelum `npx tsc`: perintah itu membuat `expo-env.d.ts` (tipe untuk impor CSS), yang tidak ikut di repo. Satu error tipe di `src/components/app-tabs.web.tsx` dan satu error lint di `src/hooks/use-color-scheme.web.ts` berasal dari template Expo dan hanya menyangkut versi web; aplikasi tetap berjalan.
+
 Jangan jalankan `npm run reset-project`: skrip bawaan template itu memindahkan seluruh isi `src/app` ke folder `example`.
